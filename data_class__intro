@@ -1,0 +1,24 @@
+dataclass
+https://docs.python.org/3/library/dataclasses.html
+----------
+
+PEP-557
+
+namedtuple -	https://docs.python.org/3/library/collections.html#collections.namedtuple
+basic usage example
+dir()
+
+dataclasses.make_dataclass
+@dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)
+
+dataclasses.field
+dataclasses.fields
+
+dataclasses.asdict
+dataclasses.astuple
+
+self.__post_init__()
+
+frozen=True to the dataclass()
+
+Compare objects and sort them

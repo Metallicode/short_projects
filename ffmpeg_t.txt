@@ -1,0 +1,54 @@
+
+
+- קיצור סרטון
+ffmpeg -i input.mp4 -to 00:01:00 -c:v copy -c:a copy output.mp4
+
+- שינוי נקודת התחלה וסוף לסרטון
+
+ffmpeg -i input.mp4 -ss 00:00:15 -to 00:1:30 -c:v copy -c:a copy output2.mp4
+
+- חיתוך סרטון לחלקים
+
+ffmpeg -i "input.mp4" -f segment -segment_time 10 -reset_timestamps 1 -c copy output_%d.mp4
+
+
+- חיבור סרטונים
+ffmpeg -f concat -i videos.txt -c copy output_concat.mp4
+
+
+- חיבור רצף תמונות לסרטון/גיפ
+
+ffmpeg -framerate 30 -pattern_type glob -i 'images/*.png' -i audio.wav -c:v libx264 -c:a aac -shortest -r 30 raw.mp4
+
+
+- להאט/להאיץ סרטון
+ffmpeg -i output.mp4 -filter_complex "[0:v]setpts=2*PTS[v];[0:a]atempo=0.5[a]" -map "[v]" -map "[a]" output2.mp4
+
+ffmpeg -i input.mp4 -filter_complex "[0:v]setpts=0.5*PTS[v];[0:a]atempo=2.0[a]" -map "[v]" -map "[a]" output.mp4
+
+
+- שילוב שכבת תמונה מעל סרטון
+
+ffmpeg -i input.mp4 -i layer.png -filter_complex "[0:v][1:v] overlay=(W-w)/2:(H-h)/2" -c:a copy output.mp4
+
+- הגברת עוצמה סאונד סרטון
+
+ffmpeg -i input.mp4 -af volume=20dB C_high_volume.mp4
+
+
+- ניקוי רעשים
+ffmpeg -i in.wav -af "arnndn=m=/home/dom/Desktop/fffmpeg/rnnoise-models/somnolent-hogwash-2018-09-01/sh.rnnn" out.wav
+
+https://github.com/GregorR/rnnoise-models
+
+
+פילטרים ואודיו:
+https://www.vacing.com/ffmpeg_audio_filters/index.html
+https://gist.github.com/nico-lab/27206f46eacfd3f3e748
+ליצר ספקטוגראפ
+ffmpeg -i in.wav  -filter_complex "[0:a]showspectrum=s=854x480:mode=combined:slide=scroll:saturation=0.2:scale=log,format=yuv420p[v]" -map "[v]" -map 0:a -b:v 700k -b:a 360k OUTPUT.mp4
+ 
+ 
+ffmpeg -i in.wav -filter_complex "[0:a]showwaves=mode=line:s=hd480:colors=White[v]" -map "[v]" -map 0:a -b:a 360k -r:a 44100  OUTPUT.mp4
+
+
