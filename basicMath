@@ -1,0 +1,58 @@
+A point is a location in a coordinate system, that is a location defined relatively to an origin. If you were to move the origin without moving the point, then the coordinates of the point would change.
+
+A vector is a more general object. No matter where you draw a vector v⃗  on a plane, it is still the same. If you were to move the origin, the components of the vector would not change. You can also think of a vector as a transformation. It can be applied anywhere and have the same effect: displacing a point of a certain distance in a precise direction.
+
+
+
+
+Here's an answer without using symbols.
+
+The difference is precisely that between location and displacement.
+
+Points are locations in space.
+Vectors are displacements in space.
+An analogy with time works well.
+
+Times, (also called instants or datetimes) are locations in time.
+Durations are displacements in time.
+So, in time,
+
+4:00 p.m., noon, midnight, 12:20, 23:11, etc. are times
++3 hours, -2.5 hours, +17 seconds, etc., are durations
+Notice how durations can be positive or negative; this gives them "direction" in addition to their pure scalar value. Now the best way to mentally distinguish times and durations is by the operations they support
+
+Given a time, you can add a duration to get a new time (3:00 + 2 hours = 5:00)
+You can subtract two times to get a duration (7:00 - 1:00 = 6 hours)
+You can add two durations (3 hrs, 20 min + 6 hrs, 50 min = 10 hrs, 10 min)
+But you cannot add two times (3:15 a.m. + noon = ???)
+
+Let's carry the analogy over to now talk about space:
+
+(3,5), (−2.25,7), (0,−1), etc. are points
+⟨4,−5⟩ is a vector, meaning 4 units east then 5 south, assuming north is up (sorry residents of southern hemisphere)
+Now we have exactly the same analogous operations in space as we did with time:
+
+You can add a point and a vector: Starting at (4,5) and going ⟨−1,3⟩ takes you to the point (3,8)
+You can subtract two points to get the displacement between them: (10,10)−(3,1)=⟨7,9⟩, which is the displacement you would take from the second location to get to the first
+You can add two displacements to get a compound displacement: ⟨1,3⟩+⟨−5,8⟩=⟨−4,11⟩. That is, going 1 step north and 3 east, THEN going 5 south and 8 east is the same thing and just going 4 south and 11 east.
+But you cannot add two points.
+
+In more concrete terms: Moscow + ⟨200 km north, 7000 km west⟩ is another location (point) somewhere on earth. But Moscow + Los Angeles makes no sense.
+
+To summarize, a location is where (or when) you are, and a displacement is how to get from one location to another. Displacements have both magnitude (how far to go) and a direction (which in time, a one-dimensional space, is simply positive or negative). In space, locations are points and displacements are vectors. In time, locations are (points in) time, a.k.a. instants and displacements are durations.
+
+EDIT 1: In response to some of the comments, I should point out that 4:00 p.m. is NOT a displacement, but "+4 hours" and "-7 hours" are. Sure you can get to 4:00 p.m. (an instant) by adding the displacement "+16 hours" to the instant midnight. You can also get to 4:00 p.m. by adding the diplacement "-3 hours" to 7:00 p.m. The source of the confusion between locations and displacements is that people mentally work in coordinate systems relative to some origin (whether (0,0) or "midnight" or similar) and both of these concepts are represented as coordinates. I guess that was the point of the question.
+
+EDIT 2: I added some text to make clear that durations actually have direction; I had written both -2.5 hours and +3 hours earlier, but some might have missed that the negative encapsulated a direction, and felt that a duration is "only a scalar" when in fact the adding of a + or − really does give it direction.
+
+
+
+An origin-based vector (the only kind that has only "direction and magnitude", as you write) can be represented by the point at its head.
+
+
+
+
+
+
+
+

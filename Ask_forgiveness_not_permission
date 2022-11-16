@@ -1,0 +1,33 @@
+“Ask forgiveness, not permission” opposes two programming styles. 
+
+
+“Ask for permission” goes like this:
+
+if can_do_operation():
+    perform_operation()
+else:
+    handle_error_case()
+    
+    
+    
+“Ask forgiveness” goes like this:
+
+try:
+    perform_operation()
+except Unable_to_perform:
+    handle_error_case()
+
+
+
+In a concurrent world (in a multithreaded program, or if the operation involves objects that are external to the program such as files, other processes, network resources, etc.), the situation might change between the time when you run can_do_operation() and the time when you run perform_operation(). So you'd have to handle the error anyway.
+
+You need to use exactly the right criteria for asking permission. If you get it wrong, you'll either be unable to perform an operation that you could perform, or have an error occur because you can't perform the operation after all. For example, if you test whether a file exists before opening it, it's possible that the file does exist, but you can't open it because you don't have permission. Conversely, maybe the file is created when you open it (for example because it comes over a network connection that is only brought up when you actually open the file, not when you only poke to see whether it's there).
+
+
+
+
+
+Often asking for forgiveness instead of permission has performance improvements.
+
+When you ask for permission, you have to perform an extra operation to ask for permission every time.
+When asking for forgiveness, you only have to perform an extra operation sometimes, i.e. when it fails.
