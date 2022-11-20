@@ -3,7 +3,7 @@ def factorial(x):
 
 
 # input n
-n = 35
+n = 45
 
 for i in range(n):
 	print(" "*(n-i+1), end=" ")

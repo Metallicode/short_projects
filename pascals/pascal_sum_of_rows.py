@@ -7,14 +7,14 @@ row_sums = []
 n = 20
 
 for i in range(n):
-	print(" "*(n-i+1), end=" ")
+	#print(" "*(n-i+1), end=" ")
 	row = []
 	for j in range(i+1):
 		# nCr = n!/((n-r)!*r!)
 		x = factorial(i)//(factorial(j)*factorial(i-j))
 		row.append(x)
-		print(x, end=" ")
+		#print(x, end=" ")
 	row_sums.append(sum(row))
-	print()
+	#print()
 
 print(row_sums)
