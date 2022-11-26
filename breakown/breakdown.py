@@ -11,13 +11,15 @@ def is_prime(x):
 
 primes = (x for x in range(500) if is_prime(x)==True)
 
+#print(list(primes))
+
 
 #create dictionery
 polyDict = defaultdict(int)
 
 
 #set value
-original_vale = 40500
+original_vale = int(input("\n"))
 
 #keep running until result is done
 while True:
