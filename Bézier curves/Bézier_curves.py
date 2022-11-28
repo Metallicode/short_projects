@@ -21,10 +21,10 @@ def evaluate_bezier(points, total):
 
 points = np.array([
     [0, 0],
-    [-1, 3],
+    [2, 3],
     [4, 3],
     [6, 0],
-    [7, 2.5]
+    [10, 2.5]
 ])
 
 x, y = points[:,0], points[:,1]
