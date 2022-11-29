@@ -1,0 +1,51 @@
+#https://brilliant.org/wiki/differentiable-function/
+
+#https://en.wikipedia.org/wiki/Differential_of_a_function
+#https://en.wikipedia.org/wiki/Derivative
+
+
+1 - create a Differentiable Function
+
+	>>>f = x**3+x*2+x**2*sin(x)
+
+
+(The process of finding a derivative is called differentiation.)
+	
+2 - finding the function derivative
+	>>>f_tag= f.diff(x)
+
+3 - create the range
+
+	>>>v = np.linspace(0, 100, 100)
+
+4 - create the point (x1, y2) on which we want to find the slop
+
+	>>>x1=60
+	>>>y1=f.subs(x, x1)
+	
+	
+5 - calculate the slop at x1
+
+	>>>slop = f_tag.subs(x, x1)
+
+
+6 - use the point slop function to create a tangent line.
+
+	>>>new_line = slop*(x - x1)+y1
+	
+	
+7 - plot the function
+
+	>>>plt.plot(v, [f.subs(x, q) for q in v])
+
+
+8 - plot the tangent
+	>>>plt.plot(v, [new_line.subs(x, q) for q in v])
+	
+	
+9 - scatter point
+	>>>plt.scatter(x1, y1,color="red")
+	
+	>>>plt.show()
+	
+
