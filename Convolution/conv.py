@@ -12,10 +12,10 @@ plt.plot(xi,yi)
 flt = np.ones(400)/250
 
 print(flt)
-#the convolution operator flips the second array before “sliding”
 
+#the convolution operator flips the second array before “sliding”
 c = np.convolve(flt,yi, 'same')
 
-plt.plot(xi[:len(flt)],flt)
+#plt.plot(xi[:len(flt)],flt)
 plt.plot(xi,c)
 plt.show()

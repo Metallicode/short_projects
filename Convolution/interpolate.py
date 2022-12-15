@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
 
 # Define the x and y values for the interpolation
 x = [1, 3, 7, 11]
@@ -8,37 +10,20 @@ y = [4, 9, 13, 19]
 xi = np.linspace(x[0], x[-1], len(x) * 2 - 1)
 yi = np.interp(xi, x, y)
 
-# The output should be [4, 6.5, 9, 11.5, 13, 15.5, 19]
-print(yi)
-
-
-
-
-########################################################################################
-
-
-
-import numpy as np
-from scipy.interpolate import interp1d
-
-# Define the x and y values for the interpolation
-x = [1, 3, 7, 11]
-y = [4, 9, 13, 19]
-
-# Interpolate the y-values at the midpoint between each pair of x-values
-xi = np.linspace(x[0], x[-1], len(x) * 2 - 1)
-
-# Create the interpolation function
+'''
 f = interp1d(x, y)
-
-# Interpolate the y-values using the interpolation function
 yi = f(xi)
+'''
+
 
 # The output should be [4, 6.5, 9, 11.5, 13, 15.5, 19]
 print(yi)
+
+
 
 
 #############################################################################################
+
 
 
 def interpolate_array(arr, n):
@@ -66,13 +51,6 @@ def interpolate_array(arr, n):
   return interpolated_values
   
   
-  
-'''
-
-The x-values in the x list define the points at which the y-values in the y list are known. These values are used as the reference points for the interpolation, and the interpolation function estimates the y-values at the x-coordinates in the xi array based on the known x- and y-values.
-
-For example, in the code above, the x- and y-values are [1, 3, 7, 11] and [4, 9, 13, 19], respectively. This means that the y-value at x=1 is 4, the y-value at x=3 is 9, and so on. The xi array specifies the x-coordinates at which to interpolate the y-values, in this case the midpoint between each pair of x-values. The interpolation function then estimates the y-values at these x-coordinates based on the known x- and y-values, resulting in the interpolated y-values [4, 6.5, 9, 11.5, 13, 15.5, 19].
-
-In general, the x-values and y-values can be any values, as long as they are paired such that each x-value has a corresponding y-value. The x-coordinates at which to interpolate the y-values can also be any values within the range of the x-values, and the interpolation function will estimate the y-values at these x-coordinates based on the known x- and y-values.
-
-'''
+ia = interpolate_array([1,2,3,6,9], 10)
+plt.plot(range(len(ia)), ia)
+plt.show()
