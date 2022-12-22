@@ -6,7 +6,7 @@ from random import randint
 
 def rotate(origin, point, angle):
 	ox, oy = origin
-	px, py = point
+	px, py = point[0]-ox, point[1]-oy
 	s = np.sin(angle)
 	c = np.cos(angle)
 	qx = ox + c * (px - ox) - s * (py - oy)
@@ -19,12 +19,14 @@ def init_plot():
 	ax.set_xlim([-xy_lim,xy_lim])
 	
 def plot_vectors(va, vb):
-	v_a = np.array([origin, va])
-	v_b = np.array([origin, vb])
+	v_a = np.array([origin, va])# [[0,0], [1,2]]
+	v_b = np.array([origin, vb])# [[0,0], [1,2]]
 	plt.plot(v_a.T[0], v_a.T[1])
 	plt.plot(v_b.T[0], v_b.T[1])
 	plt.scatter(*va)
 	plt.scatter(*vb)
+	
+	
 
 #set plot style
 xy_lim = 5
@@ -39,12 +41,12 @@ ax.axvline(x=0, color='k')
 origin = np.array([0,0])
 
 #arbitrary points
-a = np.array([1,4])
+a = np.array([randint(-xy_lim, xy_lim),randint(-xy_lim, xy_lim)])
 b = np.array([randint(-xy_lim, xy_lim),randint(-xy_lim, xy_lim)])
 
 x_axis = np.array([1,0])
 
-#plot_vectors(a, b)
+plot_vectors(a, b)
 
 ###########################################################################
 
@@ -57,7 +59,7 @@ b_mag = np.sqrt(((b[0]-origin[0])**2)+((b[1]-origin[1])**2))
 print(f"a magnitude {a_mag}")
 print(f"b magnitude {b_mag}")
 
-#calc vectors dot product
+#calc the vectors dot product
 ab_dot = np.dot(a, b)
 print(f"dot product {np.dot(a, b)}")
 
